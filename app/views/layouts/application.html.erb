@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HomeCook</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="header p-3 mb-2 bg-secondary text-white">
+      <div class="d-flex bd-highlight">
+        <div class="p-2 flex-grow-1 bd-highlight">アイコン</div>
+          <% if user_signed_in? %>
+            <li class="p-2 bd-highlight">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %>
+            </li>
+          <% else %>
+            <li class="p-2 bd-highlight">
+              <%= link_to "新規登録", new_user_registration_path, class: "text-white" %>
+            </li>
+            <li class="p-2 bd-highlight">
+              <%= link_to "ログイン", new_user_session_path, class: "text-white" %>
+            </li>
+          <% end %>
+            <p class="p-2 bd-highlight">
+              <%= link_to "ユーザー一覧", users_path, class: "text-white" %>
+            </p>
+            <p class="p-2 bd-highlight">
+              <%= link_to "料理一覧", cooks_path, class: "text-white" %>
+            </p>
+            <p><%= link_to "レシピの投稿", new_cook_path, class: "btn btn-primary" %></p>
+        </div>
+      </div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    <%= yield %>
+    <footer>
+      <div class="p-3 mb-2 bg-secondary text-white text-center">
+        Home_cook
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= current_user.name %>
+      <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.png", size:'100x100' %>
+
+      <h1 class="py-4"><%= @user.name %>の料理</h1>
+
+      <% @user_cooks.each do |user_cook| %>
+        <%=link_to cook_path(user_cook) do %>
+        <%= attachment_image_tag user_cook, :image, :fill, 100, 100 %>
+        <% end %>
+      <% end %>
+      <p class="py-4"><%= link_to "戻る", users_path %></p>
+    </div>
+  </div>
+</div>

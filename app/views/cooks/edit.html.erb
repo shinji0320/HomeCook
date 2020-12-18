@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Cook Edit</h1>
+      <%= form_with model:@cook, local:true do |f| %>
+        <h4>写真</h4>
+        <%= f.attachment_field :image %>
+        <h4>料理名</h4>
+        <%= f.text_field :cook_name %>
+        <h4>作り方（メモ）</h4>
+        <%= f.text_area :caption %><br >
+        <%= f.submit "変更を保存", class: "btn btn-primary" %>
+      <% end %>
+      <%= link_to "戻る", cooks_path %>
+    </div>
+  </div>
+</div>

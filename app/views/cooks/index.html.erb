@@ -1,0 +1,12 @@
+<div class="contanier">
+  <div class="row mx-auto p-0 d-flex align-content-start flex-wrap">
+    <% @cooks.each do |cook| %>
+      <div class="col-2">
+        <%= link_to cook_path(cook) do %>
+        <%= attachment_image_tag cook, :image, :fill, 400, 400, format: 'jpeg', fallback: "no_image.png",size:'200x200' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
